@@ -48,7 +48,7 @@ import java.util.Deque;
 
 class Solution {
     public int[] asteroidCollision(int[] asteroids) {
-        Deque<Integer> stack = new ArrayDeque<>();
+        Deque<Integer> stack = new ArrayDeque<Integer>();
         for (int aster : asteroids) {
             boolean alive = true;
             while (alive && aster < 0 && !stack.isEmpty() && stack.peek() > 0) {
