@@ -1,30 +1,26 @@
-//Problem 6120
-//302/maximum-number-of-pairs-in-array
-
-import java.util.Arrays;
-
+//Problem 2342
 public class Start {
     private static void test(int count) {
         switch (count) {
             case 1: {
                 System.out.println("test 1 start:");
-                int[] numsIn = new int[]{1, 3, 2, 1, 3, 2, 2};
-                System.out.println(Arrays.toString(new Solution().numberOfPairs(numsIn)));
-                System.out.println("Should be: [3, 1]\n");
+                int[] numsIn = new int[]{18, 43, 36, 13, 7};
+                System.out.println(new Solution().maximumSum(numsIn));
+                System.out.println("Should be: 54\n");
                 break;
             }
             case 2: {
                 System.out.println("test 2 start:");
-                int[] numsIn = new int[]{1, 1};
-                System.out.println(Arrays.toString(new Solution().numberOfPairs(numsIn)));
-                System.out.println("Should be: [1, 0]\n");
+                int[] numsIn = new int[]{10, 12, 19, 14};
+                System.out.println(new Solution().maximumSum(numsIn));
+                System.out.println("Should be: -1\n");
                 break;
             }
             case 3: {
                 System.out.println("test 3 start:");
-                int[] numsIn = new int[]{0};
-                System.out.println(Arrays.toString(new Solution().numberOfPairs(numsIn)));
-                System.out.println("Should be: [0, 1]\n");
+                int[] numsIn = new int[]{10, 12, 19, 28};
+                System.out.println(new Solution().maximumSum(numsIn));
+                System.out.println("Should be: 47\n");
                 break;
             }
             default: {

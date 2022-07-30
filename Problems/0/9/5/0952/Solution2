@@ -1,0 +1,74 @@
+//Time Limit Exceeded: 74 / 108
+
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.List;
+
+//leetcode submit region begin(Prohibit modification and deletion)
+class Solution {
+    private boolean notCoprime(int a,int b){
+        if(a==1||b==1)
+            return false;
+        while(true){
+            int t = a%b;
+            if(t == 0) break;
+            else{
+                a = b;
+                b = t;
+            }
+        }
+        return b > 1;
+    }
+    public int largestComponentSize(int[] nums) {
+        Edge[] graph = new Edge[nums.length];
+        for (int i=0;i<nums.length;i++){
+            graph[i]=new Edge();
+        }
+        for (int i=0;i<nums.length;i++){
+            for (int j=i+1;j<nums.length;j++){
+                if(notCoprime(nums[i],nums[j])){
+                    graph[i].outEdge.add(j);
+                    graph[j].inNumber++;
+                    graph[j].outEdge.add(i);
+                }
+            }
+        }
+        List<Integer> list=new ArrayList<>();
+        for (int i=0;i<nums.length;i++){
+            if (graph[i].inNumber==0){
+                list.add(i);
+            }
+        }
+        int count=0;
+        for (int i:list){
+            int k=0;
+            Deque<Integer> stack = new ArrayDeque<>();
+            stack.addLast(i);
+            graph[i].used=true;
+            k++;
+            while (!stack.isEmpty()){
+                Integer edgeNow=stack.pollLast();
+                for (int edge:graph[edgeNow].outEdge){
+                    if (!graph[edge].used){
+                        graph[edge].used=true;
+                        k++;
+                        stack.addLast(edge);
+                    }
+                }
+            }
+            if(k>count){
+                count=k;
+            }
+        }
+        return count;
+
+    }
+
+    private static class Edge {
+        public int inNumber;
+        public boolean used=false;
+        public List<Integer> outEdge = new ArrayList<>();
+    }
+}
+//leetcode submit region end(Prohibit modification and deletion)

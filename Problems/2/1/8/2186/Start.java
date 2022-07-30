@@ -1,5 +1,4 @@
-//Problem 6009
-//minimum-number-of-steps-to-make-two-strings-anagram-ii
+//Problem 2186
 public class Start {
     private static void test1(){
         System.out.println("test 1 start:");
