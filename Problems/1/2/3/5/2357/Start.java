@@ -1,4 +1,4 @@
-//Problem make-array-zero-by-subtracting-equal-amounts
+//Problem 2357
 public class Start {
     private static void test(int count) {
         switch (count) {
