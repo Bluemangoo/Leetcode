@@ -1,0 +1,41 @@
+//Time Limit Exceeded: 60 / 62
+
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.List;
+
+class Solution {
+    public int reachableNodes(int n, int[][] edges, int[] restricted) {
+        List<List<Integer>> out = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            out.add(new ArrayList<>());
+        }
+        List<Integer> listRestricted = new ArrayList<>();
+        for (int i : restricted) {
+            listRestricted.add(i);
+        }
+        for (int[] line : edges) {
+            if (!listRestricted.contains(line[0])&&!listRestricted.contains(line[1])) {
+                out.get(line[0]).add(line[1]);
+                out.get(line[1]).add(line[0]);
+            }
+        }
+        int ans = 0;
+        Deque<Integer> stack = new ArrayDeque<>();
+        boolean[] used=new boolean[n];
+        stack.addLast(0);
+        used[0]=true;
+        while (!stack.isEmpty()) {
+            int now = stack.pollLast();
+            for (int i : out.get(now)) {
+                if (!used[i]) {
+                    stack.addLast(i);
+                    used[i]=true;
+                }
+            }
+            ans++;
+        }
+        return ans;
+    }
+}
