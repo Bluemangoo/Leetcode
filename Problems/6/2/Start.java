@@ -4,38 +4,30 @@ public class Start {
         switch (count) {
             case 1: {
                 System.out.println("test " + count + " start:");
-                int nIn = 7;
-                int[][] edgesIn = new int[][]{{0, 1}, {1, 2}, {3, 1}, {4, 0}, {0, 5}, {5, 6}};
-                int[] restrictedIn = new int[]{4, 5};
-                System.out.println(new Solution().reachableNodes(nIn, edgesIn, restrictedIn));
-                System.out.println("4  <-  Should be\n");
+                int[] edgesIn = new int[]{1, 0, 0, 0, 0, 7, 7, 5};
+                System.out.println(new Solution().edgeScore(edgesIn));
+                System.out.println("7  <-  Should be\n");
                 break;
             }
             case 2: {
                 System.out.println("test " + count + " start:");
-                int nIn = 7;
-                int[][] edgesIn = new int[][]{{0, 1}, {0, 2}, {0, 5}, {0, 4}, {3, 2}, {6, 5}};
-                int[] restrictedIn = new int[]{4, 2, 1};
-                System.out.println(new Solution().reachableNodes(nIn, edgesIn, restrictedIn));
-                System.out.println("3  <-  Should be\n");
+                int[] edgesIn = new int[]{2, 0, 0, 2};
+                System.out.println(new Solution().edgeScore(edgesIn));
+                System.out.println("0  <-  Should be\n");
                 break;
             }
             case 3: {
                 System.out.println("test " + count + " start:");
-                int nIn = 2;
-                int[][] edgesIn = new int[][]{{0, 1}};
-                int[] restrictedIn = new int[]{1};
-                System.out.println(new Solution().reachableNodes(nIn, edgesIn, restrictedIn));
-                System.out.println("1  <-  Should be\n");
+                int[] edgesIn = new int[]{0};
+                System.out.println(new Solution().edgeScore(edgesIn));
+                System.out.println("0  <-  Should be\n");
                 break;
             }
             case 4: {
                 System.out.println("test " + count + " start:");
-                int nIn = 10;
-                int[][] edgesIn = new int[][]{{4, 1}, {1, 3}, {1, 5}, {0, 5}, {3, 6}, {8, 4}, {5, 7}, {6, 9}, {3, 2}};
-                int[] restrictedIn = new int[]{2, 7};
-                System.out.println(new Solution().reachableNodes(nIn, edgesIn, restrictedIn));
-                System.out.println("8  <-  Should be\n");
+                int[] edgesIn = new int[]{1,1};
+                System.out.println(new Solution().edgeScore(edgesIn));
+                System.out.println("1  <-  Should be\n");
                 break;
             }
             default: {
