@@ -40,19 +40,19 @@
 class Solution {
     public int maxEqualFreq(int[] nums) {
         int[] cnt = new int[100010], sum = new int[100010];
-        int max=1,maxCnt=1;
-        for (int i=0;i< nums.length;i++){
+        int max = 1, maxCnt = 1;
+        for (int i = 0; i < nums.length; i++) {
             cnt[sum[nums[i]]]--;
             sum[nums[i]]++;
             cnt[sum[nums[i]]]++;
-            if (sum[nums[i]]>maxCnt){
-                maxCnt=sum[nums[i]];
+            if (sum[nums[i]] > maxCnt) {
+                maxCnt = sum[nums[i]];
             }
-            if ((cnt[maxCnt-1]+1)*(maxCnt-1)==i||cnt[maxCnt]*maxCnt==i&&maxCnt!=1&&cnt[1]==1||cnt[1]==i+1){
-                max=i;
+            if ((cnt[maxCnt - 1] + 1) * (maxCnt - 1) == i || cnt[maxCnt] * maxCnt == i && maxCnt != 1 && cnt[1] == 1 || cnt[1] == i + 1) {
+                max = i;
             }
         }
-        return max+1;
+        return max + 1;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

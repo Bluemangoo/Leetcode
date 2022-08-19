@@ -91,39 +91,40 @@ import java.util.List;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
-    private static class Event{
-        int function;
-        int start;
-        int keep=0;
-        Event(int function,int start){
-            this.function=function;
-            this.start=start;
-        }
-    }
     public int[] exclusiveTime(int n, List<String> logs) {
-        int[] ans=new int[n];
-        Deque<Event> stack=new ArrayDeque<>();
-        for (String log:logs){
+        int[] ans = new int[n];
+        Deque<Event> stack = new ArrayDeque<>();
+        for (String log : logs) {
             String[] list = log.split(":");
-            int function= Integer.parseInt(list[0]);
-            boolean isStart=list[1].equals("start");
-            int timeStamp= Integer.parseInt(list[2]);
-            if(isStart){
-                if (!stack.isEmpty()){
-                    stack.peekLast().keep+=timeStamp-stack.peekLast().start;
+            int function = Integer.parseInt(list[0]);
+            boolean isStart = list[1].equals("start");
+            int timeStamp = Integer.parseInt(list[2]);
+            if (isStart) {
+                if (!stack.isEmpty()) {
+                    stack.peekLast().keep += timeStamp - stack.peekLast().start;
                 }
-                stack.addLast(new Event(function,timeStamp));
-            }
-            else {
-                Event now=stack.pollLast();
+                stack.addLast(new Event(function, timeStamp));
+            } else {
+                Event now = stack.pollLast();
                 assert now != null;
-                ans[now.function]+=now.keep+timeStamp-now.start+1;
-                if (!stack.isEmpty()){
-                    stack.peekLast().start=timeStamp+1;
+                ans[now.function] += now.keep + timeStamp - now.start + 1;
+                if (!stack.isEmpty()) {
+                    stack.peekLast().start = timeStamp + 1;
                 }
             }
         }
         return ans;
+    }
+
+    private static class Event {
+        int function;
+        int start;
+        int keep = 0;
+
+        Event(int function, int start) {
+            this.function = function;
+            this.start = start;
+        }
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

@@ -33,10 +33,10 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int arrayNesting(int[] nums) {
-        boolean[] used=new boolean[nums.length];
-        int length=0;
-        for (int i=0;i<nums.length;i++){
-            if (used[i]){
+        boolean[] used = new boolean[nums.length];
+        int length = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (used[i]) {
                 continue;
             }
             int lengthInside = 0;

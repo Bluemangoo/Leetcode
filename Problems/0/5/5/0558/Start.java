@@ -70,8 +70,8 @@ public class Start {
             }
             case 4: {
                 System.out.println("test 4 start:");
-                Node quadTree1In = makeNode(new int[]{0,0,1,1,1,0,1,1,1,1});
-                Node quadTree2In = makeNode(new int[]{0,0,1,1,0,1,1,1,1,1}, new int[]{1,1,1,0,1,0,1,1});
+                Node quadTree1In = makeNode(new int[]{0, 0, 1, 1, 1, 0, 1, 1, 1, 1});
+                Node quadTree2In = makeNode(new int[]{0, 0, 1, 1, 0, 1, 1, 1, 1, 1}, new int[]{1, 1, 1, 0, 1, 0, 1, 1});
                 System.out.println(new Solution().intersect(quadTree1In, quadTree2In).toString());
                 System.out.println("[[0,-],[1,1],[0,-],[1,1],[1,0],[1,0],[1,1],[1,1],[1,1]]  <-  Should be\n");
                 break;

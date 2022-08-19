@@ -56,13 +56,13 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int minCostToMoveChips(int[] position) {
-        int odd=0;
-        for (int i : position){
-            if(i%2==1){
+        int odd = 0;
+        for (int i : position) {
+            if (i % 2 == 1) {
                 odd++;
             }
         }
-        return Math.min(odd,position.length-odd);
+        return Math.min(odd, position.length - odd);
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

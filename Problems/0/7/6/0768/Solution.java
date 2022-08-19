@@ -46,7 +46,7 @@ class Solution {
         for (int i = arr.length - 1; i >= 0; i--) {
             if (!stack.isEmpty() && arr[i] > stack.peekLast()) {
                 int min = stack.pollLast();
-                while (!stack.isEmpty()&&arr[i] > stack.peekLast()) {
+                while (!stack.isEmpty() && arr[i] > stack.peekLast()) {
                     stack.pollLast();
                 }
                 stack.addLast(min);
@@ -54,7 +54,7 @@ class Solution {
                 stack.addLast(arr[i]);
             }
         }
-        return stack.size()-1;
+        return stack.size() - 1;
 
     }
 }

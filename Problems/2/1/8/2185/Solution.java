@@ -26,9 +26,9 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int prefixCount(String[] words, String pref) {
-        int n=0;
-        for(String i:words){
-            if(i.indexOf(pref)==0){
+        int n = 0;
+        for (String i : words) {
+            if (i.indexOf(pref) == 0) {
                 n++;
             }
         }

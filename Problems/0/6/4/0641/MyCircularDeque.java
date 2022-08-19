@@ -72,8 +72,8 @@ class MyCircularDeque {
         }
         count++;
         start--;
-        if (start<0){
-            start+=size;
+        if (start < 0) {
+            start += size;
         }
         queue[(start + 1) % size] = value;
         return true;

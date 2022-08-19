@@ -29,23 +29,22 @@
 //s 和 t 由小写英文字符组成
 
 
-
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int minSteps(String s, String t) {
         int n = 0;
-        char[] sChar=s.toCharArray();
-        char[] tChar=t.toCharArray();
-        int[] sCount=new int[26];
-        int[] tCount=new int[26];
-        for (char i:sChar){
-            sCount[i-'a']++;
+        char[] sChar = s.toCharArray();
+        char[] tChar = t.toCharArray();
+        int[] sCount = new int[26];
+        int[] tCount = new int[26];
+        for (char i : sChar) {
+            sCount[i - 'a']++;
         }
-        for (char i:tChar){
-            tCount[i-'a']++;
+        for (char i : tChar) {
+            tCount[i - 'a']++;
         }
-        for (int i=0;i<26;i++){
-            n+=Math.abs(sCount[i]-tCount[i]);
+        for (int i = 0; i < 26; i++) {
+            n += Math.abs(sCount[i] - tCount[i]);
         }
         return n;
     }

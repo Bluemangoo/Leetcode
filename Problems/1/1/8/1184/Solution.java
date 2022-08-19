@@ -54,21 +54,20 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int distanceBetweenBusStops(int[] distance, int start, int destination) {
-        int dis1=0,dis2=0;
-        if (start>destination){
-            int tmp=start;
-            start=destination;
-            destination=tmp;
+        int dis1 = 0, dis2 = 0;
+        if (start > destination) {
+            int tmp = start;
+            start = destination;
+            destination = tmp;
         }
-        for (int i=0;i<distance.length;i++){
-            if (i>=start&&i<destination){
-                dis1+=distance[i];
-            }
-            else {
-                dis2+=distance[i];
+        for (int i = 0; i < distance.length; i++) {
+            if (i >= start && i < destination) {
+                dis1 += distance[i];
+            } else {
+                dis2 += distance[i];
             }
         }
-        return Math.min(dis1,dis2);
+        return Math.min(dis1, dis2);
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

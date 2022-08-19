@@ -51,18 +51,18 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public boolean isPalindrome(int x) {
-        if(x<0){
+        if (x < 0) {
             return false;
         }
-        int[] num=new int[10];
-        int n=0;
-        while (x!=0){
-            num[n]=x%10;
-            x/=10;
+        int[] num = new int[10];
+        int n = 0;
+        while (x != 0) {
+            num[n] = x % 10;
+            x /= 10;
             n++;
         }
-        for(int i=0;i<=n/2-1;i++){
-            if(num[i]!=num[n-i-1]){
+        for (int i = 0; i <= n / 2 - 1; i++) {
+            if (num[i] != num[n - i - 1]) {
                 return false;
             }
         }

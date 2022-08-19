@@ -51,48 +51,51 @@
 //1 <= trimi <= nums[0].length
 
 //leetcode submit region begin(Prohibit modification and deletion)
+
 import java.util.ArrayList;
+
 class Solution {
     String[] nums;
-    private int search(int cut,int n, ArrayList<Integer> places){
-        ArrayList<ArrayList<Integer>> pls=new ArrayList<>();
-        for (int i=0;i<10;i++){
+
+    private int search(int cut, int n, ArrayList<Integer> places) {
+        ArrayList<ArrayList<Integer>> pls = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
             pls.add(new ArrayList<>());
         }
-        for (int i:places){
-            pls.get(nums[i].charAt(cut)-46).add(i);
+        for (int i : places) {
+            pls.get(nums[i].charAt(cut) - 46).add(i);
         }
-        for (int i=0;i<=9;i++){
-            if(n- pls.get(i).size()>0){
-                n-= pls.get(i).size();
-            }else if (n- pls.get(i).size()==0){
-                if (pls.get(i).size()==1){
+        for (int i = 0; i <= 9; i++) {
+            if (n - pls.get(i).size() > 0) {
+                n -= pls.get(i).size();
+            } else if (n - pls.get(i).size() == 0) {
+                if (pls.get(i).size() == 1) {
                     return pls.get(i).get(0);
-                }else {
-                    ArrayList<Integer> in= pls.get(i);
-                    pls=null;
-                    return search(cut+1,in.size(),in);
+                } else {
+                    ArrayList<Integer> in = pls.get(i);
+                    pls = null;
+                    return search(cut + 1, in.size(), in);
                 }
-            }
-            else {
+            } else {
 
-                ArrayList<Integer> in= pls.get(i);
-                pls=null;
-                return search(cut+1,n,in);
+                ArrayList<Integer> in = pls.get(i);
+                pls = null;
+                return search(cut + 1, n, in);
             }
         }
         return -1;
     }
+
     public int[] smallestTrimmedNumbers(String[] nums, int[][] queries) {
-        this.nums=nums;
-        int[] ans=new int[queries.length];
-        for (int i=0;i< queries.length;i++){
-            int cut=nums[0].length()-queries[i][0];
-            ArrayList<Integer> in=new ArrayList<>();
-            for (int j=0;j< nums.length;j++){
+        this.nums = nums;
+        int[] ans = new int[queries.length];
+        for (int i = 0; i < queries.length; i++) {
+            int cut = nums[0].length() - queries[i][0];
+            ArrayList<Integer> in = new ArrayList<>();
+            for (int j = 0; j < nums.length; j++) {
                 in.add(j);
             }
-            ans[i]=search(cut,queries[i][1],in);
+            ans[i] = search(cut, queries[i][1], in);
         }
         return ans;
     }

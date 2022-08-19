@@ -1,43 +1,44 @@
 //Problem 0014
 public class Start {
-    private static void test(int count){
+    private static void test(int count) {
         switch (count) {
-            case 1:{
+            case 1: {
                 System.out.println("test 1 start:");
-                String[] strsIn={"flower","flow","flight"};
+                String[] strsIn = {"flower", "flow", "flight"};
                 System.out.println(new Solution().longestCommonPrefix(strsIn));
                 System.out.println("Should be: fl\n");
                 break;
             }
-            case 2:{
+            case 2: {
                 System.out.println("test 2 start:");
-                String[] strsIn={"dog","racecar","car"};
+                String[] strsIn = {"dog", "racecar", "car"};
                 System.out.println(new Solution().longestCommonPrefix(strsIn));
                 System.out.println("Should be: \n");
                 break;
             }
-            case 3:{
+            case 3: {
                 System.out.println("test 3 start:");
-                String[] strsIn={"ab","a"};
+                String[] strsIn = {"ab", "a"};
                 System.out.println(new Solution().longestCommonPrefix(strsIn));
                 System.out.println("Should be: a\n");
                 break;
             }
-            case 4:{
+            case 4: {
                 System.out.println("test 4 start:");
-                String[] strsIn={"","a"};
+                String[] strsIn = {"", "a"};
                 System.out.println(new Solution().longestCommonPrefix(strsIn));
                 System.out.println("Should be: \n");
                 break;
             }
-            default:{
+            default: {
                 System.err.println("Too More Tests");
             }
         }
     }
+
     public static void main(String[] args) {
         int testTime = 4;
-        for (int i=1;i<=testTime;i++){
+        for (int i = 1; i <= testTime; i++) {
             test(i);
         }
     }

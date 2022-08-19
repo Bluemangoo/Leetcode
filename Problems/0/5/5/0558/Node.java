@@ -21,18 +21,19 @@ class Node {
     private static String delLast(String ori) {
         return ori.substring(0, ori.length() - 1);
     }
-    public String toString(){
-        return "["+delLast(toString(true))+"]";
+
+    public String toString() {
+        return "[" + delLast(toString(true)) + "]";
     }
+
     public String toString(boolean a) {
-        if(a) {
+        if (a) {
             if (isLeaf) {
                 return "[1," + (val ? "1" : "0") + "],";
             } else {
                 return "[0," + (val ? "1" : "0") + "]," + (topLeft == null ? "" : topLeft.toString(true)) + (topRight == null ? "" : topRight.toString(true)) + (bottomLeft == null ? "" : bottomLeft.toString(true)) + (bottomRight == null ? "" : bottomRight.toString(true));
             }
-        }
-        else {
+        } else {
             if (isLeaf) {
                 return "[1," + (val ? "1" : "0") + "],";
             } else {

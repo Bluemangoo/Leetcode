@@ -1,5 +1,7 @@
 //Problem 0735
+
 import java.util.Arrays;
+
 public class Start {
     private static void test(int count) {
         switch (count) {

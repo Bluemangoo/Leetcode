@@ -22,7 +22,7 @@ public class Start {
             }
             case 3: {
                 System.out.println("test " + count + " start:");
-                int[] edgesIn = new int[]{5,3,1,0,2,4,5};
+                int[] edgesIn = new int[]{5, 3, 1, 0, 2, 4, 5};
                 int node1 = 3;
                 int node2 = 2;
                 System.out.println(new Solution().closestMeetingNode(edgesIn, node1, node2));

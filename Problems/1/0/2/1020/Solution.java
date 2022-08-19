@@ -38,42 +38,44 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     int[][] data;
-    int xMax,yMax;
-    private void dfs(int x,int y){
-        if(data[x][y]==0){
+    int xMax, yMax;
+
+    private void dfs(int x, int y) {
+        if (data[x][y] == 0) {
             return;
         }
-        data[x][y]=0;
-        if(x!=0){
-            dfs(x-1,y);
+        data[x][y] = 0;
+        if (x != 0) {
+            dfs(x - 1, y);
         }
-        if(x!=xMax){
-            dfs(x+1,y);
+        if (x != xMax) {
+            dfs(x + 1, y);
         }
-        if(y!=0){
-            dfs(x,y-1);
+        if (y != 0) {
+            dfs(x, y - 1);
         }
-        if(y!=yMax){
-            dfs(x,y+1);
+        if (y != yMax) {
+            dfs(x, y + 1);
         }
     }
+
     public int numEnclaves(int[][] grid) {
-        data=grid;
-        xMax= grid.length-1;
-        yMax= grid[0].length-1;
-        for (int i=0;i<=xMax-1;i++){
-            dfs(i,0);
-            dfs(i,yMax);
+        data = grid;
+        xMax = grid.length - 1;
+        yMax = grid[0].length - 1;
+        for (int i = 0; i <= xMax - 1; i++) {
+            dfs(i, 0);
+            dfs(i, yMax);
         }
-        for (int i=0;i<=yMax-1;i++){
-            dfs(0,i);
-            dfs(xMax,i);
+        for (int i = 0; i <= yMax - 1; i++) {
+            dfs(0, i);
+            dfs(xMax, i);
         }
-        data[xMax][yMax]=0;
-        int n=0;
-        for(int i=0;i<=xMax;i++){
-            for (int j=0;j<=yMax;j++){
-                n+=data[i][j];
+        data[xMax][yMax] = 0;
+        int n = 0;
+        for (int i = 0; i <= xMax; i++) {
+            for (int j = 0; j <= yMax; j++) {
+                n += data[i][j];
             }
         }
         return n;

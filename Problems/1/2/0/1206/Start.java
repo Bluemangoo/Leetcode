@@ -3,7 +3,7 @@ public class Start {
     private static void test(int count) {
         switch (count) {
             case 1: {
-                System.out.println("test "+count+" start:");
+                System.out.println("test " + count + " start:");
                 Skiplist skiplist = new Skiplist();
                 skiplist.add(1);
                 skiplist.add(2);

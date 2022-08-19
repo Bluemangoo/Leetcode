@@ -40,6 +40,7 @@
 // 
 //
 // Related Topics 树 深度优先搜索 广度优先搜索 图 数组 哈希表 👍 19 👎 0
+
 import java.util.*;
 
 //leetcode submit region begin(Prohibit modification and deletion)
@@ -62,11 +63,11 @@ class Solution {
         queue.add(0);
         visited[0] = true;
         int ans = 1;
-        while (!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             int cur = queue.poll();
-            for(int next : lists[cur]){
-                if (!set.contains(next)){
-                    if(!visited[next]){
+            for (int next : lists[cur]) {
+                if (!set.contains(next)) {
+                    if (!visited[next]) {
                         queue.add(next);
                         visited[next] = true;
                         ans++;

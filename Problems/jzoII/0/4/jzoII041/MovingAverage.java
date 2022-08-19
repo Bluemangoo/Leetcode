@@ -50,27 +50,29 @@
 class MovingAverage {
     int[] data;
     int size;
-    int now=0,all=0;
+    int now = 0, all = 0;
 
-    /** Initialize your data structure here. */
+    /**
+     * Initialize your data structure here.
+     */
     public MovingAverage(int size) {
-        this.size=size;
-        this.data =new int[size];
+        this.size = size;
+        this.data = new int[size];
     }
 
     public double next(int val) {
-        data[now++]=val;
-        if(all!=size){
+        data[now++] = val;
+        if (all != size) {
             all++;
         }
-        if (now==size){
-            now=0;
+        if (now == size) {
+            now = 0;
         }
-        int j=0;
-        for(int i=0;i<all;i++){
-            j+= data[i];
+        int j = 0;
+        for (int i = 0; i < all; i++) {
+            j += data[i];
         }
-        return (double) j/all;
+        return (double) j / all;
     }
 }
 

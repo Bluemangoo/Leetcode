@@ -58,49 +58,50 @@ import java.util.List;
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
+ * int val;
+ * TreeNode left;
+ * TreeNode right;
+ * TreeNode() {}
+ * TreeNode(int val) { this.val = val; }
+ * TreeNode(int val, TreeNode left, TreeNode right) {
+ * this.val = val;
+ * this.left = left;
+ * this.right = right;
+ * }
  * }
  */
 class CBTInserter {
-    List<Integer> list=new ArrayList<>();
-    TreeNode makeNode(int count){
-        if (list.size()>count*2+1){
-            return new TreeNode(list.get(count),makeNode(count*2),makeNode(count*2+1));
-        }
-        if (list.size()>count*2){
-            return new TreeNode(list.get(count),makeNode(count*2),null);
-        }
-        return new TreeNode(list.get(count));
-    }
+    List<Integer> list = new ArrayList<>();
 
     public CBTInserter(TreeNode root) {
         list.add(0);
-        Deque<TreeNode> queue=new ArrayDeque<>();
+        Deque<TreeNode> queue = new ArrayDeque<>();
         queue.addFirst(root);
-        while (!queue.isEmpty()){
-            TreeNode tmp=queue.pollLast();
+        while (!queue.isEmpty()) {
+            TreeNode tmp = queue.pollLast();
             list.add(tmp.val);
-            if (tmp.left!=null){
+            if (tmp.left != null) {
                 queue.addFirst(tmp.left);
             }
-            if (tmp.right!=null){
+            if (tmp.right != null) {
                 queue.addFirst(tmp.right);
             }
         }
     }
 
+    TreeNode makeNode(int count) {
+        if (list.size() > count * 2 + 1) {
+            return new TreeNode(list.get(count), makeNode(count * 2), makeNode(count * 2 + 1));
+        }
+        if (list.size() > count * 2) {
+            return new TreeNode(list.get(count), makeNode(count * 2), null);
+        }
+        return new TreeNode(list.get(count));
+    }
+
     public int insert(int val) {
         list.add(val);
-        return list.get((list.size()-1)/2);
+        return list.get((list.size() - 1) / 2);
     }
 
     public TreeNode get_root() {

@@ -42,24 +42,24 @@ import java.util.Arrays;
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public String orderlyQueue(String s, int k) {
-        if (k>1||s.length()==2){
-            char[] ans=s.toCharArray();
+        if (k > 1 || s.length() == 2) {
+            char[] ans = s.toCharArray();
             Arrays.sort(ans);
             return String.valueOf(ans);
         }
-        if (s.length()<2){
+        if (s.length() < 2) {
             return s;
         }
         int[] n = new int[s.length() + 1];
-        Arrays.fill(n,-1);
+        Arrays.fill(n, -1);
         int j = 0;
         char c = Character.MAX_VALUE;
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) < c) {
                 j = 0;
-                Arrays.fill(n,-1);
+                Arrays.fill(n, -1);
                 n[j++] = i;
-                c=s.charAt(i);
+                c = s.charAt(i);
                 continue;
             }
             if (s.charAt(i) == c) {
@@ -67,7 +67,7 @@ class Solution {
             }
         }
         String ans = null;
-        for (int i=0;i<n.length&&n[i]!=-1;i++) {
+        for (int i = 0; i < n.length && n[i] != -1; i++) {
             String now = s.substring(n[i]) + s.substring(0, n[i]);
             if (ans == null) {
                 ans = now;

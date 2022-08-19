@@ -36,30 +36,31 @@ import java.util.List;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
-    String dfs(String subString){
-        if (subString.length()<=2){
+    String dfs(String subString) {
+        if (subString.length() <= 2) {
             return subString;
         }
-        int count1=0,count0=0;
-        int start=0;
-        List<String> list=new ArrayList<>();
-        for (int i=0;i<subString.length();i++){
-            if (subString.charAt(i)=='1'){
+        int count1 = 0, count0 = 0;
+        int start = 0;
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < subString.length(); i++) {
+            if (subString.charAt(i) == '1') {
                 count1++;
             }
-            if (subString.charAt(i)=='0'){
+            if (subString.charAt(i) == '0') {
                 count0++;
-                if(count1==count0){
-                    list.add(i>start+1?("1"+dfs((subString.substring(start+1,i)))+"0"):"10");
-                    start=i+1;
-                    count1=0;
-                    count0=0;
+                if (count1 == count0) {
+                    list.add(i > start + 1 ? ("1" + dfs((subString.substring(start + 1, i))) + "0") : "10");
+                    start = i + 1;
+                    count1 = 0;
+                    count0 = 0;
                 }
             }
         }
         list.sort(Comparator.reverseOrder());
-        return String.join("",list);
+        return String.join("", list);
     }
+
     public String makeLargestSpecial(String s) {
         return dfs(s);
     }

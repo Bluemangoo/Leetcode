@@ -44,55 +44,55 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public String fractionAddition(String expression) {
-        int[][] nums=new int[10][2];
-        int k=0;
-        int isDenominator=0;
-        boolean isPositive=true;
-        if (expression.charAt(0)=='-'){
+        int[][] nums = new int[10][2];
+        int k = 0;
+        int isDenominator = 0;
+        boolean isPositive = true;
+        if (expression.charAt(0) == '-') {
             k--;
         }
-        for (char i:expression.toCharArray()){
-            if (i=='-'){
-                if(!isPositive){
-                    nums[k][0]=-nums[k][0];
+        for (char i : expression.toCharArray()) {
+            if (i == '-') {
+                if (!isPositive) {
+                    nums[k][0] = -nums[k][0];
                 }
-                isDenominator=0;
-                isPositive=false;
+                isDenominator = 0;
+                isPositive = false;
                 k++;
                 continue;
             }
-            if (i=='+'){
-                if(!isPositive){
-                    nums[k][0]=-nums[k][0];
+            if (i == '+') {
+                if (!isPositive) {
+                    nums[k][0] = -nums[k][0];
                 }
-                isDenominator=0;
-                isPositive=true;
+                isDenominator = 0;
+                isPositive = true;
                 k++;
                 continue;
             }
-            if (i=='/'){
-                isDenominator=1;
+            if (i == '/') {
+                isDenominator = 1;
                 continue;
             }
-            nums[k][isDenominator]=nums[k][isDenominator]*10+i-'0';
+            nums[k][isDenominator] = nums[k][isDenominator] * 10 + i - '0';
         }
-        if(!isPositive){
-            nums[k][0]=-nums[k][0];
+        if (!isPositive) {
+            nums[k][0] = -nums[k][0];
         }
-        int numerator=0;
-        int denominator=1;
-        for (int i=0;i<=k;i++){
-            numerator*=nums[i][1];
-            numerator+=nums[i][0]*denominator;
-            denominator*=nums[i][1];
+        int numerator = 0;
+        int denominator = 1;
+        for (int i = 0; i <= k; i++) {
+            numerator *= nums[i][1];
+            numerator += nums[i][0] * denominator;
+            denominator *= nums[i][1];
         }
-        if (numerator==0){
+        if (numerator == 0) {
             return "0/1";
         }
-        for (int i:new int[]{2,3,5,7}){
-            while (numerator%i==0&&denominator%i==0){
-                numerator/=i;
-                denominator/=i;
+        for (int i : new int[]{2, 3, 5, 7}) {
+            while (numerator % i == 0 && denominator % i == 0) {
+                numerator /= i;
+                denominator /= i;
             }
         }
         return String.valueOf(numerator) + '/' + denominator;

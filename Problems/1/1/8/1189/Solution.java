@@ -40,10 +40,10 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int maxNumberOfBalloons(String text) {
-        char[] textChar=text.toCharArray();
-        int b=0,a=0,l=0,o=0,n=0;
-        for(char i : textChar){
-            switch (i){
+        char[] textChar = text.toCharArray();
+        int b = 0, a = 0, l = 0, o = 0, n = 0;
+        for (char i : textChar) {
+            switch (i) {
                 case 'a':
                     a++;
                     break;
@@ -63,7 +63,7 @@ class Solution {
                     break;
             }
         }
-        return Math.min(b,Math.min(a,Math.min(l/2,Math.min(o/2,n))));
+        return Math.min(b, Math.min(a, Math.min(l / 2, Math.min(o / 2, n))));
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

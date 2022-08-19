@@ -42,50 +42,51 @@
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
-    int ans=0;
-    int[][] count,matrix;
-    int find(int x,int y){
-        int hasChild=0;
-        if(count[x][y]!=-1){
+    int ans = 0;
+    int[][] count, matrix;
+
+    int find(int x, int y) {
+        int hasChild = 0;
+        if (count[x][y] != -1) {
             return count[x][y];
         }
-        int thisCount=0;
-        if(x+1<matrix.length&&matrix[x+1][y]<matrix[x][y]){
-            thisCount=Math.max(thisCount,find(x+1,y));
-            hasChild=1;
+        int thisCount = 0;
+        if (x + 1 < matrix.length && matrix[x + 1][y] < matrix[x][y]) {
+            thisCount = Math.max(thisCount, find(x + 1, y));
+            hasChild = 1;
         }
-        if(x-1>=0&&matrix[x-1][y]<matrix[x][y]){
-            thisCount=Math.max(thisCount,find(x-1,y));
-            hasChild=1;
+        if (x - 1 >= 0 && matrix[x - 1][y] < matrix[x][y]) {
+            thisCount = Math.max(thisCount, find(x - 1, y));
+            hasChild = 1;
         }
-        if(y+1<matrix[0].length&&matrix[x][y+1]<matrix[x][y]){
-            thisCount=Math.max(thisCount,find(x,y+1));
-            hasChild=1;
+        if (y + 1 < matrix[0].length && matrix[x][y + 1] < matrix[x][y]) {
+            thisCount = Math.max(thisCount, find(x, y + 1));
+            hasChild = 1;
         }
-        if(y-1>=0&&matrix[x][y-1]<matrix[x][y]){
-            thisCount=Math.max(thisCount,find(x,y-1));
-            hasChild=1;
+        if (y - 1 >= 0 && matrix[x][y - 1] < matrix[x][y]) {
+            thisCount = Math.max(thisCount, find(x, y - 1));
+            hasChild = 1;
         }
-        count[x][y]=thisCount+hasChild;
+        count[x][y] = thisCount + hasChild;
         return count[x][y];
     }
 
     public int longestIncreasingPath(int[][] matrix) {
-        this.matrix=matrix;
+        this.matrix = matrix;
         count = new int[matrix.length][matrix[0].length];
-        for (int i=0;i<matrix.length;i++) {
+        for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[0].length; j++) {
-                count[i][j]=-1;
+                count[i][j] = -1;
             }
         }
-        for (int i=0;i<matrix.length;i++){
-            for (int j=0;j<matrix[0].length;j++){
-                if(count[i][j]==-1){
-                    ans=Math.max(ans,find(i,j));
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                if (count[i][j] == -1) {
+                    ans = Math.max(ans, find(i, j));
                 }
             }
         }
-        return ans+1;
+        return ans + 1;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

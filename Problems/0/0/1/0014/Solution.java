@@ -40,7 +40,7 @@ class Solution {
         }
         for (String string : strs) {
             for (int i = 0; i < common.length(); i++) {
-                if (string.length()<i+1){
+                if (string.length() < i + 1) {
                     common = common.substring(0, i);
                     break;
                 }

@@ -1,6 +1,7 @@
+//Problem 2373
+
 import java.util.Arrays;
 
-//Problem 0565
 public class Start {
     private static void test(int count) {
         switch (count) {

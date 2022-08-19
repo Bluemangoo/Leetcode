@@ -3,8 +3,8 @@ public class Start {
     private static void test(int count) {
         switch (count) {
             case 1: {
-                System.out.println("test "+count+" start:");
-                MyCircularDeque circularDeque=new MyCircularDeque(3);
+                System.out.println("test " + count + " start:");
+                MyCircularDeque circularDeque = new MyCircularDeque(3);
                 Print.print(circularDeque.insertLast(1));
                 Print.print(circularDeque.insertLast(2));
                 Print.print(circularDeque.insertFront(3));
@@ -18,8 +18,8 @@ public class Start {
                 break;
             }
             case 2: {
-                System.out.println("test "+count+" start:");
-                MyCircularDeque circularDeque=new MyCircularDeque(3);
+                System.out.println("test " + count + " start:");
+                MyCircularDeque circularDeque = new MyCircularDeque(3);
                 Print.print(circularDeque.insertLast(1));
                 Print.print(circularDeque.insertLast(2));
                 Print.print(circularDeque.deleteFront());
@@ -28,8 +28,8 @@ public class Start {
                 break;
             }
             case 3: {
-                System.out.println("test "+count+" start:");
-                MyCircularDeque circularDeque=new MyCircularDeque(3);
+                System.out.println("test " + count + " start:");
+                MyCircularDeque circularDeque = new MyCircularDeque(3);
                 Print.print(circularDeque.insertFront(3));
                 Print.print(circularDeque.deleteLast());
                 Print.print(circularDeque.getRear());

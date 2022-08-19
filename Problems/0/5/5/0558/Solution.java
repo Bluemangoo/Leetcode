@@ -141,13 +141,13 @@ class Node {
 class Solution {
     private Node mixNode(Node node1, Node node2) {
         if (node1.isLeaf) {
-            if (node1.val){
+            if (node1.val) {
                 return node1;
             }
             return node2;
         }
         if (node2.isLeaf) {
-            if (node2.val){
+            if (node2.val) {
                 return node2;
             }
             return node1;
@@ -156,10 +156,10 @@ class Solution {
         node1.topRight = mixNode(node1.topRight, node2.topRight);
         node1.bottomLeft = mixNode(node1.bottomLeft, node2.bottomLeft);
         node1.bottomRight = mixNode(node1.bottomRight, node2.bottomRight);
-        if (node1.topLeft.isLeaf&& node1.topLeft.val&&node1.topRight.isLeaf&& node1.topRight.val&&node1.bottomLeft.isLeaf&& node1.bottomLeft.val&&node1.bottomRight.isLeaf&& node1.bottomRight.val){
-            Node out=new Node();
-            out.isLeaf=true;
-            out.val=true;
+        if (node1.topLeft.isLeaf && node1.topLeft.val && node1.topRight.isLeaf && node1.topRight.val && node1.bottomLeft.isLeaf && node1.bottomLeft.val && node1.bottomRight.isLeaf && node1.bottomRight.val) {
+            Node out = new Node();
+            out.isLeaf = true;
+            out.val = true;
             return out;
         }
         return node1;

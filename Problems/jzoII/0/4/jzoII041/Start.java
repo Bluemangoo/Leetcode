@@ -1,7 +1,10 @@
 //Problem 剑指 Offer II 041 || 0346 (*Plus)
+
 import java.util.Arrays;
+
 public class Start {
     private static MovingAverage movingAverage;
+
     private static void test(int count) {
         switch (count) {
             case 1: {
@@ -18,7 +21,7 @@ public class Start {
             }
             case 3: {
                 System.out.println("test 3 start:");
-                System.out.printf("%.5f%n",movingAverage.next(3));
+                System.out.printf("%.5f%n", movingAverage.next(3));
                 System.out.println("Should be: 4.66667\n");
                 break;
             }
@@ -36,7 +39,7 @@ public class Start {
     }
 
     public static void main(String[] args) {
-        movingAverage =new MovingAverage(3);
+        movingAverage = new MovingAverage(3);
         int testTime = 4;
         for (int i = 1; i <= testTime; i++) {
             test(i);

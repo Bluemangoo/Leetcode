@@ -51,18 +51,17 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int minStartValue(int[] nums) {
-        int sum=0,min=Integer.MAX_VALUE;
-        for (int num:nums){
-            sum+=num;
-            if (min>sum){
-                min=sum;
+        int sum = 0, min = Integer.MAX_VALUE;
+        for (int num : nums) {
+            sum += num;
+            if (min > sum) {
+                min = sum;
             }
         }
-        if (min>0){
+        if (min > 0) {
             return 1;
-        }
-        else {
-            return 1-min;
+        } else {
+            return 1 - min;
         }
     }
 }

@@ -41,22 +41,23 @@
 // 
 //
 // Related Topics 数组 哈希表 双指针 枚举 👍 11 👎 0
+
 import java.util.ArrayList;
 import java.util.List;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int arithmeticTriplets(int[] nums, int diff) {
-        if(nums.length<3){
+        if (nums.length < 3) {
             return 0;
         }
-        int ans=0;
-        List<Integer> list=new ArrayList<>();
+        int ans = 0;
+        List<Integer> list = new ArrayList<>();
         for (int num : nums) {
             list.add(num);
         }
-        for (int i=0;i<nums.length-2;i++){
-            if (list.contains(nums[i]+diff)&&list.contains(nums[i]+2*diff)){
+        for (int i = 0; i < nums.length - 2; i++) {
+            if (list.contains(nums[i] + diff) && list.contains(nums[i] + 2 * diff)) {
                 ans++;
             }
         }

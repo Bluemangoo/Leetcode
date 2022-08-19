@@ -42,63 +42,66 @@
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * int val;
+ * ListNode next;
+ * ListNode() {}
+ * ListNode(int val) { this.val = val; }
+ * ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
 class Solution {
-    private void carry(ListNode listnode){
+    private void carry(ListNode listnode) {
         listnode.val++;
-        if (listnode.val<10){
+        if (listnode.val < 10) {
             return;
         }
-        listnode.val-=10;
-        if (listnode.next==null){
-            listnode.next=new ListNode(1);
+        listnode.val -= 10;
+        if (listnode.next == null) {
+            listnode.next = new ListNode(1);
             return;
         }
         carry(listnode.next);
     }
-    private ListNode add(ListNode l1, ListNode l2, int remainder){
-        int val= l1.val+l2.val+remainder;
-        if (val<10){
-            if (l1.next==null){
-                l2.val=val;
+
+    private ListNode add(ListNode l1, ListNode l2, int remainder) {
+        int val = l1.val + l2.val + remainder;
+        if (val < 10) {
+            if (l1.next == null) {
+                l2.val = val;
                 return l2;
             }
-            if (l2.next==null){
-                l1.val=val;
+            if (l2.next == null) {
+                l1.val = val;
                 return l1;
             }
-            l1.val=val;
-            l1.next=add(l1.next,l2.next,0);
+            l1.val = val;
+            l1.next = add(l1.next, l2.next, 0);
             return l1;
         }
-        if (l1.next==null){
-            l2.val=val-10;
-            if (l2.next==null){
-                l2.next=new ListNode(0);
+        if (l1.next == null) {
+            l2.val = val - 10;
+            if (l2.next == null) {
+                l2.next = new ListNode(0);
             }
             carry(l2.next);
             return l2;
         }
-        if (l2.next==null){
-            l1.val=val-10;
+        if (l2.next == null) {
+            l1.val = val - 10;
             carry(l1.next);
             return l1;
         }
-        l1.val=val-10;
-        l1.next=add(l1.next,l2.next,1);
+        l1.val = val - 10;
+        l1.next = add(l1.next, l2.next, 1);
         return l1;
     }
+
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        return add(l1,l2,0);
+        return add(l1, l2, 0);
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

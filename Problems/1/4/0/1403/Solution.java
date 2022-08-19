@@ -50,16 +50,16 @@ class Solution {
     public List<Integer> minSubsequence(int[] nums) {
         List<Integer> ans = new ArrayList<>();
         Arrays.sort(nums);
-        int n=0;
-        int m=0;
+        int n = 0;
+        int m = 0;
         for (int num : nums) {
             n += num;
         }
-        int k=nums.length-1;
-        while (n>=m){
-            int tmp=nums[k--];
-            n-=tmp;
-            m+=tmp;
+        int k = nums.length - 1;
+        while (n >= m) {
+            int tmp = nums[k--];
+            n -= tmp;
+            m += tmp;
             ans.add(tmp);
         }
         return ans;

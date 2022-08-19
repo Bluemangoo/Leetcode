@@ -36,32 +36,30 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     int[] numsGlobal;
-    private int binarySearch(int l,int r){
-        if(r-l<2) return l;
-        int m=l+(r-l)/2;
-        if(m%2!=0){
-            if(numsGlobal[m]==numsGlobal[m+1]){
-                return binarySearch(l,m);
-            }
-            else return binarySearch(m,r);
-        }
-        else {
-            if(numsGlobal[m]==numsGlobal[m+1]){
-                return binarySearch(m,r);
-            }
-            else return binarySearch(l,m);
+
+    private int binarySearch(int l, int r) {
+        if (r - l < 2) return l;
+        int m = l + (r - l) / 2;
+        if (m % 2 != 0) {
+            if (numsGlobal[m] == numsGlobal[m + 1]) {
+                return binarySearch(l, m);
+            } else return binarySearch(m, r);
+        } else {
+            if (numsGlobal[m] == numsGlobal[m + 1]) {
+                return binarySearch(m, r);
+            } else return binarySearch(l, m);
 
         }
     }
+
     public int singleNonDuplicate(int[] nums) {
-        numsGlobal=nums;
-        int nl=binarySearch(0,nums.length-1);
-        if (nl==0)
+        numsGlobal = nums;
+        int nl = binarySearch(0, nums.length - 1);
+        if (nl == 0)
             return nums[0];
-        if(nums[nl]==nums[nl-1]){
-            return nums[nl+1];
-        }
-        else return nums[nl];
+        if (nums[nl] == nums[nl - 1]) {
+            return nums[nl + 1];
+        } else return nums[nl];
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

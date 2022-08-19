@@ -1,4 +1,4 @@
-//Problem 0565
+//Problem 2374
 public class Start {
     private static void test(int count) {
         switch (count) {
@@ -25,7 +25,7 @@ public class Start {
             }
             case 4: {
                 System.out.println("test " + count + " start:");
-                int[] edgesIn = new int[]{1,1};
+                int[] edgesIn = new int[]{1, 1};
                 System.out.println(new Solution().edgeScore(edgesIn));
                 System.out.println("1  <-  Should be\n");
                 break;

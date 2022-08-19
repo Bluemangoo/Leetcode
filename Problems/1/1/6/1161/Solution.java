@@ -47,46 +47,48 @@ import java.util.List;
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
+ * int val;
+ * TreeNode left;
+ * TreeNode right;
+ * TreeNode() {}
+ * TreeNode(int val) { this.val = val; }
+ * TreeNode(int val, TreeNode left, TreeNode right) {
+ * this.val = val;
+ * this.left = left;
+ * this.right = right;
+ * }
  * }
  */
 class Solution {
-    List<Integer> values=new ArrayList<>();
-    int hasNode=0;
-    private void dfs(TreeNode node,int depth){
-        if (depth>hasNode){
-            hasNode=depth;
+    List<Integer> values = new ArrayList<>();
+    int hasNode = 0;
+
+    private void dfs(TreeNode node, int depth) {
+        if (depth > hasNode) {
+            hasNode = depth;
         }
-        if (values.size()<=depth){
+        if (values.size() <= depth) {
             values.add(0);
         }
-        values.set(depth,values.get(depth)+node.val);
-        if (node.left!=null){
-            dfs(node.left,depth+1);
+        values.set(depth, values.get(depth) + node.val);
+        if (node.left != null) {
+            dfs(node.left, depth + 1);
         }
-        if (node.right!=null){
-            dfs(node.right,depth+1);
+        if (node.right != null) {
+            dfs(node.right, depth + 1);
         }
     }
+
     public int maxLevelSum(TreeNode root) {
-        dfs(root,0);
-        int max=Integer.MIN_VALUE,maxDepth=0;
-        for (int i=0;i<=hasNode;i++){
-            if (values.get(i) >max){
-                max= values.get(i);
-                maxDepth=i;
+        dfs(root, 0);
+        int max = Integer.MIN_VALUE, maxDepth = 0;
+        for (int i = 0; i <= hasNode; i++) {
+            if (values.get(i) > max) {
+                max = values.get(i);
+                maxDepth = i;
             }
         }
-        return maxDepth+1;
+        return maxDepth + 1;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

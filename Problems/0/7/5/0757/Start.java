@@ -18,7 +18,7 @@ public class Start {
             }
             case 3: {
                 System.out.println("test 3 start:");
-                int[][] intervalsIn = new int[][]{{1,2},{7,9},{101,118}};
+                int[][] intervalsIn = new int[][]{{1, 2}, {7, 9}, {101, 118}};
                 System.out.println(new Solution().intersectionSizeTwo(intervalsIn));
                 System.out.println("6  <-  Should be\n");
                 break;

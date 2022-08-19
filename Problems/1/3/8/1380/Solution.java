@@ -48,8 +48,8 @@ import java.util.List;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
-    public List<Integer> luckyNumbers (int[][] matrix) {
-        ArrayList<Integer> answer=new ArrayList<>();
+    public List<Integer> luckyNumbers(int[][] matrix) {
+        ArrayList<Integer> answer = new ArrayList<>();
         for (int[] ints : matrix) {
             int minN = 0;
             int min = ints[0];

@@ -46,31 +46,32 @@ import java.util.Comparator;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
-    private static class Data{
-        public int index, num;
-        Data(int index, int num){
-            this.num=num;
-            this.index=index;
-        }
-    }
     public int[] arrayRankTransform(int[] arr) {
-        Data[] nums=new Data[arr.length];
-        for (int i=0;i<arr.length;i++){
-            nums[i]= new Data(i, arr[i]);
+        Data[] nums = new Data[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            nums[i] = new Data(i, arr[i]);
         }
         Arrays.sort(nums, Comparator.comparingInt(o -> o.num));
-        int now=-1;
-        int reduce=0;
-        for (int i=0;i<arr.length;i++){
-            if (nums[i].num==now){
+        int now = -1;
+        int reduce = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (nums[i].num == now) {
                 reduce++;
+            } else {
+                now = nums[i].num;
             }
-            else {
-                now=nums[i].num;
-            }
-            arr[nums[i].index]=i+1-reduce;
+            arr[nums[i].index] = i + 1 - reduce;
         }
         return arr;
+    }
+
+    private static class Data {
+        public int index, num;
+
+        Data(int index, int num) {
+            this.num = num;
+            this.index = index;
+        }
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

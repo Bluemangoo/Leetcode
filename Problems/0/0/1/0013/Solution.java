@@ -75,34 +75,32 @@
 // Related Topics 哈希表 数学 字符串 👍 1960 👎 0
 
 
-
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int romanToInt(String s) {
-        int[] dict=new int[89];
-        dict['I']=1;
-        dict['V']=5;
-        dict['X']=10;
-        dict['L']=50;
-        dict['C']=100;
-        dict['D']=500;
-        dict['M']=1000;
-        int num = 0,temp = 0,now = 1000;
-        for (char i:s.toCharArray()){
-            if(dict[i]<now){
-                num+=temp;
-                temp=dict[i];
-                now=dict[i];
-            }
-            else if (dict[i]==now){
-                temp+=dict[i];
-            }else if (dict[i]>now){
-                num-=temp;
-                temp=dict[i];
-                now=dict[i];
+        int[] dict = new int[89];
+        dict['I'] = 1;
+        dict['V'] = 5;
+        dict['X'] = 10;
+        dict['L'] = 50;
+        dict['C'] = 100;
+        dict['D'] = 500;
+        dict['M'] = 1000;
+        int num = 0, temp = 0, now = 1000;
+        for (char i : s.toCharArray()) {
+            if (dict[i] < now) {
+                num += temp;
+                temp = dict[i];
+                now = dict[i];
+            } else if (dict[i] == now) {
+                temp += dict[i];
+            } else if (dict[i] > now) {
+                num -= temp;
+                temp = dict[i];
+                now = dict[i];
             }
         }
-        return num+temp;
+        return num + temp;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

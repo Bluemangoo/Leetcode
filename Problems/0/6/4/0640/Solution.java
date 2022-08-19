@@ -43,52 +43,49 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public String solveEquation(String equation) {
-        char[] charArray=equation.toCharArray();
-        int multiplier=0;
-        int constant=0;
-        for (int i=0;i<charArray.length;i++){
-            if (charArray[i]=='x'){
+        char[] charArray = equation.toCharArray();
+        int multiplier = 0;
+        int constant = 0;
+        for (int i = 0; i < charArray.length; i++) {
+            if (charArray[i] == 'x') {
                 multiplier++;
                 continue;
             }
-            int j=i;
-            boolean flagNegative= charArray[i] == '-';
-            if (flagNegative&&charArray[i+1]=='x'){
+            int j = i;
+            boolean flagNegative = charArray[i] == '-';
+            if (flagNegative && charArray[i + 1] == 'x') {
                 i++;
                 multiplier--;
                 continue;
             }
-            if (flagNegative||Character.isDigit(charArray[i])){
+            if (flagNegative || Character.isDigit(charArray[i])) {
                 i++;
-                while (i<charArray.length&&Character.isDigit(charArray[i])){
+                while (i < charArray.length && Character.isDigit(charArray[i])) {
                     i++;
                 }
                 int sum = Integer.parseInt(equation.substring(j, i));
-                if (i<charArray.length&&charArray[i]=='x'){
-                    multiplier+= sum;
-                }
-                else {
-                    constant+= sum;
+                if (i < charArray.length && charArray[i] == 'x') {
+                    multiplier += sum;
+                } else {
+                    constant += sum;
                     i--;
                 }
-            }
-            else if (charArray[i]=='='){
-                multiplier=-multiplier;
-                constant=-constant;
+            } else if (charArray[i] == '=') {
+                multiplier = -multiplier;
+                constant = -constant;
             }
         }
-        if (multiplier==0){
-            if (constant==0) {
+        if (multiplier == 0) {
+            if (constant == 0) {
                 return "Infinite solutions";
-            }
-            else {
+            } else {
                 return "No solution";
             }
         }
-        if (constant==0){
+        if (constant == 0) {
             return "x=0";
         }
-        return "x="+(-(constant/multiplier));
+        return "x=" + (-(constant / multiplier));
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
